@@ -1,0 +1,6 @@
+scorecard_points,points_range,customers,default_rate
+lowest 20%,446-511,1244,0.528
+2nd,512-537,1166,0.226
+3rd,538-546,1262,0.147
+4th,547-555,1227,0.122
+highest 20%,556-577,1101,0.064

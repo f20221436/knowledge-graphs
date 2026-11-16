@@ -1,0 +1,15 @@
+check,value
+customers,30000.0
+columns,25.0
+missing_cells,0.0
+duplicate_ids,0.0
+duplicate_rows_excluding_id,35.0
+default_rate,0.2212
+negative_bill_cells,3932.0
+rows_with_negative_bill,1930.0
+all_zero_bill_rows,866.0
+all_zero_payment_rows,1432.0
+utilization_above_1_cells,8274.0
+max_utilization,10.69
+undocumented_education_codes_rows,345.0
+undocumented_marriage_code_rows,54.0

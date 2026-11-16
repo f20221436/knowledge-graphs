@@ -1,0 +1,6 @@
+,ROC-AUC,features
+v2 scorecard without graph,0.7562908084748585,10
+v2 scorecard with graph,0.7573580434734581,15
+v1 logistic regression A,0.75726201167508,37
+v1 logistic regression B,0.7637648399768362,46
+v1 Random Forest A,0.7800082437372513,37

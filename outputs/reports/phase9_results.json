@@ -1,0 +1,1710 @@
+{
+  "health": {
+    "customers": 30000,
+    "monthly_rows": 180000,
+    "unique_ids": true,
+    "test_share": 0.2,
+    "default_rate_train": 0.22120833333333334,
+    "default_rate_test": 0.22116666666666668
+  },
+  "graph": {
+    "status": "checked",
+    "counts_match": true,
+    "counts": {
+      "customers": 30000,
+      "accounts": 30000,
+      "monthly_records": 180000,
+      "states": 5,
+      "HAS_ACCOUNT": 30000,
+      "HAS_MONTHLY_RECORD": 180000,
+      "NEXT_MONTH": 150000,
+      "IN_STATE": 180000
+    },
+    "outcome_properties_on_nodes": 0,
+    "outcome_properties_on_relationships": 0,
+    "next_month_out_of_order": 0
+  },
+  "tests": {
+    "returncode": 0,
+    "summary": "32 passed in 6.76s"
+  },
+  "lint": {
+    "lines_mentioning": 12,
+    "not_negated": 2,
+    "self_references": 2,
+    "problems": 0,
+    "problem_lines": []
+  },
+  "patterns": [
+    {
+      "hypothesis": "H1  higher utilization -> more default",
+      "verdict": "NOT SUPPORTED (non-monotone shape)",
+      "rate_low_bucket": 0.358,
+      "rate_high_bucket": 0.3504,
+      "single_feature_auc": 0.568
+    },
+    {
+      "hypothesis": "H1b same, active users only (util > 10%)",
+      "verdict": "SUPPORTED",
+      "rate_low_bucket": 0.1602,
+      "rate_high_bucket": 0.3504,
+      "single_feature_auc": 0.595
+    },
+    {
+      "hypothesis": "H2  more late months -> more default",
+      "verdict": "SUPPORTED",
+      "rate_low_bucket": 0.1151,
+      "rate_high_bucket": 0.6972,
+      "single_feature_auc": 0.729
+    },
+    {
+      "hypothesis": "H3  higher payment coverage -> less default",
+      "verdict": "SUPPORTED",
+      "rate_low_bucket": 0.5772,
+      "rate_high_bucket": 0.1683,
+      "single_feature_auc": 0.589
+    },
+    {
+      "hypothesis": "H4  rising utilization (slope) -> more default",
+      "verdict": "NOT SUPPORTED (opposite direction)",
+      "rate_low_bucket": 0.299,
+      "rate_high_bucket": 0.214,
+      "single_feature_auc": 0.554
+    },
+    {
+      "hypothesis": "H5  rising payments (slope) -> less default",
+      "verdict": "NOT SUPPORTED (non-monotone shape)",
+      "rate_low_bucket": 0.2208,
+      "rate_high_bucket": 0.2119,
+      "single_feature_auc": 0.512
+    },
+    {
+      "hypothesis": "H6  rising bills (slope) -> more default",
+      "verdict": "NOT SUPPORTED (opposite direction)",
+      "rate_low_bucket": 0.2985,
+      "rate_high_bucket": 0.214,
+      "single_feature_auc": 0.554
+    },
+    {
+      "hypothesis": "H7  less consistent payments (CV) -> more default",
+      "verdict": "PARTLY (mostly in expected direction)",
+      "rate_low_bucket": 0.1915,
+      "rate_high_bucket": 0.2044,
+      "single_feature_auc": 0.517
+    },
+    {
+      "hypothesis": "H8  higher credit limit -> less default",
+      "verdict": "SUPPORTED",
+      "rate_low_bucket": 0.3217,
+      "rate_high_bucket": 0.1308,
+      "single_feature_auc": 0.623
+    },
+    {
+      "hypothesis": "H9  larger typical payment -> less default",
+      "verdict": "SUPPORTED",
+      "rate_low_bucket": 0.2842,
+      "rate_high_bucket": 0.1277,
+      "single_feature_auc": 0.601
+    },
+    {
+      "hypothesis": "H10 30k request is large vs typical payment -> more default",
+      "verdict": "SUPPORTED",
+      "rate_low_bucket": 0.0457,
+      "rate_high_bucket": 0.2863,
+      "single_feature_auc": 0.601
+    }
+  ],
+  "graph_patterns": [
+    {
+      "pattern": "Q1 late in >=3 of 6 months",
+      "customers": 3744,
+      "train_default_rate": 0.599,
+      "train_ci": "[0.581, 0.616]",
+      "test_default_rate": 0.603,
+      "test_ci": "[0.568, 0.638]",
+      "lift_vs_base": 2.71
+    },
+    {
+      "pattern": "Q2 late >=3 months in a row",
+      "customers": 3297,
+      "train_default_rate": 0.604,
+      "train_ci": "[0.585, 0.623]",
+      "test_default_rate": 0.604,
+      "test_ci": "[0.567, 0.641]",
+      "lift_vs_base": 2.73
+    },
+    {
+      "pattern": "Q3 utilization >=90% in >=3 months",
+      "customers": 5062,
+      "train_default_rate": 0.305,
+      "train_ci": "[0.291, 0.319]",
+      "test_default_rate": 0.285,
+      "test_ci": "[0.258, 0.313]",
+      "lift_vs_base": 1.38
+    },
+    {
+      "pattern": "Q4 utilization rose >=3 months running",
+      "customers": 1300,
+      "train_default_rate": 0.193,
+      "train_ci": "[0.170, 0.218]",
+      "test_default_rate": 0.225,
+      "test_ci": "[0.178, 0.281]",
+      "lift_vs_base": 0.87
+    },
+    {
+      "pattern": "Q5 recovered and clean in last 3 months",
+      "customers": 1629,
+      "train_default_rate": 0.235,
+      "train_ci": "[0.213, 0.259]",
+      "test_default_rate": 0.184,
+      "test_ci": "[0.146, 0.230]",
+      "lift_vs_base": 1.06
+    },
+    {
+      "pattern": "Q6 paid <10% of statement in >=3 months",
+      "customers": 15433,
+      "train_default_rate": 0.267,
+      "train_ci": "[0.259, 0.275]",
+      "test_default_rate": 0.261,
+      "test_ci": "[0.246, 0.277]",
+      "lift_vs_base": 1.21
+    },
+    {
+      "pattern": "Q7 always paid in full, never late",
+      "customers": 3652,
+      "train_default_rate": 0.118,
+      "train_ci": "[0.107, 0.130]",
+      "test_default_rate": 0.12,
+      "test_ci": "[0.099, 0.146]",
+      "lift_vs_base": 0.53
+    },
+    {
+      "pattern": "Q8 >=2 concerning signals",
+      "customers": 8149,
+      "train_default_rate": 0.429,
+      "train_ci": "[0.417, 0.442]",
+      "test_default_rate": 0.418,
+      "test_ci": "[0.394, 0.442]",
+      "lift_vs_base": 1.94
+    },
+    {
+      "pattern": "Q10 relapse (late, recovered, late again)",
+      "customers": 1073,
+      "train_default_rate": 0.544,
+      "train_ci": "[0.511, 0.576]",
+      "test_default_rate": 0.525,
+      "test_ci": "[0.452, 0.598]",
+      "lift_vs_base": 2.46
+    }
+  ],
+  "ablation_cv": [
+    {
+      "model": "Random Forest",
+      "feature_set": "A0_raw",
+      "description": "raw monthly columns only",
+      "n_features": 19,
+      "cv_roc_auc": 0.7845184842458629,
+      "roc_ci_low": 0.7765656685307434,
+      "roc_ci_high": 0.7924712999609824,
+      "cv_pr_auc": 0.5554527696889417,
+      "pr_ci_low": 0.542611839702761,
+      "pr_ci_high": 0.5682936996751226,
+      "reference": "A",
+      "delta_roc_auc": -0.0034859391096483884,
+      "delta_ci_low": -0.005285468901409126,
+      "delta_ci_high": -0.0016864093178876511,
+      "folds_better": "1/25",
+      "p_value": 0.0005294997612464228
+    },
+    {
+      "model": "Random Forest",
+      "feature_set": "A",
+      "description": "baseline: raw + engineered (reference)",
+      "n_features": 37,
+      "cv_roc_auc": 0.7880044233555114,
+      "roc_ci_low": 0.7805208190236121,
+      "roc_ci_high": 0.7954880276874106,
+      "cv_pr_auc": 0.5612082834140416,
+      "pr_ci_low": 0.5477943222950941,
+      "pr_ci_high": 0.5746222445329892,
+      "reference": null,
+      "delta_roc_auc": null,
+      "delta_ci_low": null,
+      "delta_ci_high": null,
+      "folds_better": null,
+      "p_value": null
+    },
+    {
+      "model": "Random Forest",
+      "feature_set": "B",
+      "description": "baseline + 9 graph features",
+      "n_features": 46,
+      "cv_roc_auc": 0.7879222339738889,
+      "roc_ci_low": 0.7803706158752186,
+      "roc_ci_high": 0.7954738520725593,
+      "cv_pr_auc": 0.5611064533053554,
+      "pr_ci_low": 0.5479151072976455,
+      "pr_ci_high": 0.5742977993130652,
+      "reference": "A",
+      "delta_roc_auc": -8.218938162233513e-05,
+      "delta_ci_low": -0.0008314950796305977,
+      "delta_ci_high": 0.0006671163163859274,
+      "folds_better": "12/25",
+      "p_value": 0.8228200647445512
+    },
+    {
+      "model": "Random Forest",
+      "feature_set": "B_no_population",
+      "description": "baseline + 7 graph features (no transition network)",
+      "n_features": 44,
+      "cv_roc_auc": 0.7878474594692048,
+      "roc_ci_low": 0.7803538878637304,
+      "roc_ci_high": 0.7953410310746791,
+      "cv_pr_auc": 0.5610475508165387,
+      "pr_ci_low": 0.5473842708510577,
+      "pr_ci_high": 0.5747108307820197,
+      "reference": "A",
+      "delta_roc_auc": -0.0001569638863064915,
+      "delta_ci_low": -0.0008749485731097981,
+      "delta_ci_high": 0.0005610208004968151,
+      "folds_better": "10/25",
+      "p_value": 0.6558931622598072
+    },
+    {
+      "model": "Random Forest",
+      "feature_set": "graph_only",
+      "description": "credit limit + 9 graph features",
+      "n_features": 10,
+      "cv_roc_auc": 0.7704175069157005,
+      "roc_ci_low": 0.762628832292573,
+      "roc_ci_high": 0.7782061815388281,
+      "cv_pr_auc": 0.5433490702884771,
+      "pr_ci_low": 0.5303204359175883,
+      "pr_ci_high": 0.556377704659366,
+      "reference": "A",
+      "delta_roc_auc": -0.017586916439810824,
+      "delta_ci_low": -0.02211822455680182,
+      "delta_ci_high": -0.01305560832281983,
+      "folds_better": "0/25",
+      "p_value": 3.084200067968268e-08
+    },
+    {
+      "model": "Random Forest",
+      "feature_set": "A_demo",
+      "description": "baseline + demographics (ablation only)",
+      "n_features": 41,
+      "cv_roc_auc": 0.788742859179705,
+      "roc_ci_low": 0.7811679525594731,
+      "roc_ci_high": 0.7963177657999368,
+      "cv_pr_auc": 0.5627373793755092,
+      "pr_ci_low": 0.5493746902476944,
+      "pr_ci_high": 0.576100068503324,
+      "reference": "A",
+      "delta_roc_auc": 0.0007384358241935152,
+      "delta_ci_low": -0.00023291489141736416,
+      "delta_ci_high": 0.0017097865398043944,
+      "folds_better": "19/25",
+      "p_value": 0.1297378477637554
+    },
+    {
+      "model": "Logistic regression",
+      "feature_set": "LR-A",
+      "description": "baseline (reference)",
+      "n_features": 37,
+      "cv_roc_auc": 0.766467667463951,
+      "roc_ci_low": 0.7572075368576575,
+      "roc_ci_high": 0.7757277980702445,
+      "cv_pr_auc": 0.5091715036723008,
+      "pr_ci_low": 0.4962699709928715,
+      "pr_ci_high": 0.5220730363517301,
+      "reference": null,
+      "delta_roc_auc": null,
+      "delta_ci_low": null,
+      "delta_ci_high": null,
+      "folds_better": null,
+      "p_value": null
+    },
+    {
+      "model": "Logistic regression",
+      "feature_set": "LR-B",
+      "description": "baseline + 9 graph features",
+      "n_features": 46,
+      "cv_roc_auc": 0.7716543809135799,
+      "roc_ci_low": 0.7640338003314259,
+      "roc_ci_high": 0.7792749614957338,
+      "cv_pr_auc": 0.526814209164179,
+      "pr_ci_low": 0.5122835379801883,
+      "pr_ci_high": 0.5413448803481696,
+      "reference": "LR-A",
+      "delta_roc_auc": 0.005186713449628821,
+      "delta_ci_low": 0.0022880063601852987,
+      "delta_ci_high": 0.008085420539072343,
+      "folds_better": "24/25",
+      "p_value": 0.0011401497075743325
+    }
+  ],
+  "test_metrics": [
+    {
+      "model": "RF A",
+      "metric": "roc_auc",
+      "value": 0.7800082437372513,
+      "ci_low": 0.7658006421378788,
+      "ci_high": 0.7950330987797597
+    },
+    {
+      "model": "RF A",
+      "metric": "pr_auc",
+      "value": 0.5574979053668357,
+      "ci_low": 0.5301776159487014,
+      "ci_high": 0.5876449943042216
+    },
+    {
+      "model": "RF A",
+      "metric": "brier",
+      "value": 0.173192346331189,
+      "ci_low": 0.16823855726687284,
+      "ci_high": 0.17807707220680075
+    },
+    {
+      "model": "RF B",
+      "metric": "roc_auc",
+      "value": 0.7792347483200887,
+      "ci_low": 0.7650213227451631,
+      "ci_high": 0.7939004689128493
+    },
+    {
+      "model": "RF B",
+      "metric": "pr_auc",
+      "value": 0.5565809080721099,
+      "ci_low": 0.5292959931581595,
+      "ci_high": 0.5865323440719964
+    },
+    {
+      "model": "RF B",
+      "metric": "brier",
+      "value": 0.1732375729852137,
+      "ci_low": 0.1682708660041495,
+      "ci_high": 0.17809997638741765
+    },
+    {
+      "model": "LR-A",
+      "metric": "roc_auc",
+      "value": 0.75726201167508,
+      "ci_low": 0.7424374736278332,
+      "ci_high": 0.772922297992204
+    },
+    {
+      "model": "LR-A",
+      "metric": "pr_auc",
+      "value": 0.5020846330900472,
+      "ci_low": 0.47405774732607764,
+      "ci_high": 0.5319756310760835
+    },
+    {
+      "model": "LR-A",
+      "metric": "brier",
+      "value": 0.19203571601195524,
+      "ci_low": 0.18733533321698015,
+      "ci_high": 0.19688554793370172
+    },
+    {
+      "model": "LR-B",
+      "metric": "roc_auc",
+      "value": 0.7637648399768362,
+      "ci_low": 0.7485395018083928,
+      "ci_high": 0.7795529013526723
+    },
+    {
+      "model": "LR-B",
+      "metric": "pr_auc",
+      "value": 0.5196876165843974,
+      "ci_low": 0.49250598906860693,
+      "ci_high": 0.5495053983396988
+    },
+    {
+      "model": "LR-B",
+      "metric": "brier",
+      "value": 0.18824333927553258,
+      "ci_low": 0.1834699022433848,
+      "ci_high": 0.19316690166529152
+    }
+  ],
+  "paired_test": {
+    "Random Forest: B - A": {
+      "delta_roc_auc": -0.0007734954171626507,
+      "roc_ci_low": -0.0019261721850784314,
+      "roc_ci_high": 0.0003847408450858923,
+      "delta_pr_auc": -0.0009169972947258298,
+      "pr_ci_low": -0.0031816966743469176,
+      "pr_ci_high": 0.001269361855555052,
+      "reliable_improvement": false
+    },
+    "Logistic regression: LR-B - LR-A": {
+      "delta_roc_auc": 0.006502828301756192,
+      "roc_ci_low": 0.0027161374233584668,
+      "roc_ci_high": 0.010147427540681302,
+      "delta_pr_auc": 0.01760298349435019,
+      "pr_ci_low": 0.0066251290925842254,
+      "pr_ci_high": 0.028358535027167283,
+      "reliable_improvement": true
+    }
+  },
+  "gnn": {
+    "folds": 5,
+    "gnn_roc_auc": 0.7829478997987048,
+    "gnn_ci": [
+      0.7717408406646735,
+      0.7941549589327361
+    ],
+    "rf_a_roc_auc": 0.7882952090993394,
+    "delta_vs_rf": -0.005347309300634606,
+    "delta_ci": [
+      -0.00888668570178513,
+      -0.0018079328994840826
+    ],
+    "ensemble_roc_auc": 0.7884491836896537
+  },
+  "calibration": {
+    "summary": {
+      "raw forest score, test": {
+        "brier": 0.173192346331189,
+        "brier_base_rate": 0.17225197222222224,
+        "brier_skill": -0.005459293712779978,
+        "ece": 0.18236075427029566,
+        "mean_predicted": 0.40352742093696226,
+        "observed_rate": 0.22116666666666668,
+        "calibration_intercept": -1.1342571132251418,
+        "calibration_slope": 0.9402784302297933
+      },
+      "calibrated PD, test": {
+        "brier": 0.13464880162907433,
+        "brier_base_rate": 0.17225197222222224,
+        "brier_skill": 0.2183032804096784,
+        "ece": 0.010783567024355074,
+        "mean_predicted": 0.22190016370196342,
+        "observed_rate": 0.22116666666666668,
+        "calibration_intercept": -0.058897893598514044,
+        "calibration_slope": 0.9494343929399245
+      },
+      "calibrated PD, train (out-of-fold)": {
+        "brier": 0.13316579005179335,
+        "brier_base_rate": 0.17227520659722223,
+        "brier_skill": 0.227017092696724,
+        "ece": 0.00521423252344279,
+        "mean_predicted": 0.22169601276057033,
+        "observed_rate": 0.22120833333333334,
+        "calibration_intercept": -0.022477965186001356,
+        "calibration_slope": 0.9822652213185474
+      }
+    },
+    "bootstrap": [
+      {
+        "model": "raw forest score",
+        "metric": "roc_auc",
+        "value": 0.7800082437372513,
+        "ci_low": 0.7658006421378788,
+        "ci_high": 0.7950330987797597
+      },
+      {
+        "model": "raw forest score",
+        "metric": "pr_auc",
+        "value": 0.5574979053668357,
+        "ci_low": 0.5301776159487014,
+        "ci_high": 0.5876449943042216
+      },
+      {
+        "model": "raw forest score",
+        "metric": "brier",
+        "value": 0.173192346331189,
+        "ci_low": 0.16823855726687284,
+        "ci_high": 0.17807707220680075
+      },
+      {
+        "model": "calibrated PD",
+        "metric": "roc_auc",
+        "value": 0.7799614776221719,
+        "ci_low": 0.7657120721333902,
+        "ci_high": 0.7951569738728147
+      },
+      {
+        "model": "calibrated PD",
+        "metric": "pr_auc",
+        "value": 0.5559953497350629,
+        "ci_low": 0.5290181161869371,
+        "ci_high": 0.5860748162038775
+      },
+      {
+        "model": "calibrated PD",
+        "metric": "brier",
+        "value": 0.13464880162907433,
+        "ci_low": 0.1285629205658029,
+        "ci_high": 0.14044458521284164
+      }
+    ]
+  },
+  "bands": [
+    {
+      "scenario": "3 x typical payment",
+      "version": "full score",
+      "band": "Supportable in this scenario",
+      "test_customers": 3734,
+      "miss_rate": 0.1101,
+      "ci_low": 0.1004,
+      "ci_high": 0.1205,
+      "share_all_customers": 0.6252666666666666
+    },
+    {
+      "scenario": "3 x typical payment",
+      "version": "full score",
+      "band": "Review",
+      "test_customers": 320,
+      "miss_rate": 0.3219,
+      "ci_low": 0.2731,
+      "ci_high": 0.3749,
+      "share_all_customers": 0.05503333333333333
+    },
+    {
+      "scenario": "3 x typical payment",
+      "version": "full score",
+      "band": "Not supportable in this scenario",
+      "test_customers": 868,
+      "miss_rate": 0.6198,
+      "ci_low": 0.5871,
+      "ci_high": 0.6515,
+      "share_all_customers": 0.14286666666666667
+    },
+    {
+      "scenario": "3 x typical payment",
+      "version": "full score",
+      "band": "Insufficient behavioural evidence",
+      "test_customers": 1078,
+      "miss_rate": 0.2551,
+      "ci_low": 0.23,
+      "ci_high": 0.282,
+      "share_all_customers": 0.17683333333333334
+    },
+    {
+      "scenario": "3 x typical payment",
+      "version": "model-risk factor removed (PD gate kept)",
+      "band": "Supportable in this scenario",
+      "test_customers": 3707,
+      "miss_rate": 0.1136,
+      "ci_low": 0.1038,
+      "ci_high": 0.1242,
+      "share_all_customers": null
+    },
+    {
+      "scenario": "3 x typical payment",
+      "version": "model-risk factor removed (PD gate kept)",
+      "band": "Review",
+      "test_customers": 437,
+      "miss_rate": 0.2792,
+      "ci_low": 0.2392,
+      "ci_high": 0.323,
+      "share_all_customers": null
+    },
+    {
+      "scenario": "3 x typical payment",
+      "version": "model-risk factor removed (PD gate kept)",
+      "band": "Not supportable in this scenario",
+      "test_customers": 778,
+      "miss_rate": 0.6542,
+      "ci_low": 0.6201,
+      "ci_high": 0.6868,
+      "share_all_customers": null
+    },
+    {
+      "scenario": "3 x typical payment",
+      "version": "model-risk factor removed (PD gate kept)",
+      "band": "Insufficient behavioural evidence",
+      "test_customers": 1078,
+      "miss_rate": 0.2551,
+      "ci_low": 0.23,
+      "ci_high": 0.282,
+      "share_all_customers": null
+    },
+    {
+      "scenario": "3 x typical payment",
+      "version": "model removed completely",
+      "band": "Supportable in this scenario",
+      "test_customers": 3707,
+      "miss_rate": 0.1136,
+      "ci_low": 0.1038,
+      "ci_high": 0.1242,
+      "share_all_customers": null
+    },
+    {
+      "scenario": "3 x typical payment",
+      "version": "model removed completely",
+      "band": "Review",
+      "test_customers": 466,
+      "miss_rate": 0.2983,
+      "ci_low": 0.2585,
+      "ci_high": 0.3413,
+      "share_all_customers": null
+    },
+    {
+      "scenario": "3 x typical payment",
+      "version": "model removed completely",
+      "band": "Not supportable in this scenario",
+      "test_customers": 740,
+      "miss_rate": 0.6581,
+      "ci_low": 0.6232,
+      "ci_high": 0.6914,
+      "share_all_customers": null
+    },
+    {
+      "scenario": "3 x typical payment",
+      "version": "model removed completely",
+      "band": "Insufficient behavioural evidence",
+      "test_customers": 1087,
+      "miss_rate": 0.2576,
+      "ci_low": 0.2325,
+      "ci_high": 0.2844,
+      "share_all_customers": null
+    },
+    {
+      "scenario": "fixed 30,000",
+      "version": "full score",
+      "band": "Supportable in this scenario",
+      "test_customers": 2604,
+      "miss_rate": 0.0945,
+      "ci_low": 0.0838,
+      "ci_high": 0.1063,
+      "share_all_customers": 0.43416666666666665
+    },
+    {
+      "scenario": "fixed 30,000",
+      "version": "full score",
+      "band": "Review",
+      "test_customers": 1213,
+      "miss_rate": 0.1566,
+      "ci_low": 0.1373,
+      "ci_high": 0.1782,
+      "share_all_customers": 0.20526666666666665
+    },
+    {
+      "scenario": "fixed 30,000",
+      "version": "full score",
+      "band": "Not supportable in this scenario",
+      "test_customers": 1105,
+      "miss_rate": 0.5575,
+      "ci_low": 0.528,
+      "ci_high": 0.5865,
+      "share_all_customers": 0.18373333333333333
+    },
+    {
+      "scenario": "fixed 30,000",
+      "version": "full score",
+      "band": "Insufficient behavioural evidence",
+      "test_customers": 1078,
+      "miss_rate": 0.2551,
+      "ci_low": 0.23,
+      "ci_high": 0.282,
+      "share_all_customers": 0.17683333333333334
+    },
+    {
+      "scenario": "fixed 30,000",
+      "version": "model-risk factor removed (PD gate kept)",
+      "band": "Supportable in this scenario",
+      "test_customers": 1638,
+      "miss_rate": 0.0879,
+      "ci_low": 0.0751,
+      "ci_high": 0.1026,
+      "share_all_customers": null
+    },
+    {
+      "scenario": "fixed 30,000",
+      "version": "model-risk factor removed (PD gate kept)",
+      "band": "Review",
+      "test_customers": 1754,
+      "miss_rate": 0.1294,
+      "ci_low": 0.1145,
+      "ci_high": 0.1459,
+      "share_all_customers": null
+    },
+    {
+      "scenario": "fixed 30,000",
+      "version": "model-risk factor removed (PD gate kept)",
+      "band": "Not supportable in this scenario",
+      "test_customers": 1530,
+      "miss_rate": 0.4451,
+      "ci_low": 0.4204,
+      "ci_high": 0.4701,
+      "share_all_customers": null
+    },
+    {
+      "scenario": "fixed 30,000",
+      "version": "model-risk factor removed (PD gate kept)",
+      "band": "Insufficient behavioural evidence",
+      "test_customers": 1078,
+      "miss_rate": 0.2551,
+      "ci_low": 0.23,
+      "ci_high": 0.282,
+      "share_all_customers": null
+    },
+    {
+      "scenario": "fixed 30,000",
+      "version": "model removed completely",
+      "band": "Supportable in this scenario",
+      "test_customers": 1638,
+      "miss_rate": 0.0879,
+      "ci_low": 0.0751,
+      "ci_high": 0.1026,
+      "share_all_customers": null
+    },
+    {
+      "scenario": "fixed 30,000",
+      "version": "model removed completely",
+      "band": "Review",
+      "test_customers": 1754,
+      "miss_rate": 0.1294,
+      "ci_low": 0.1145,
+      "ci_high": 0.1459,
+      "share_all_customers": null
+    },
+    {
+      "scenario": "fixed 30,000",
+      "version": "model removed completely",
+      "band": "Not supportable in this scenario",
+      "test_customers": 1521,
+      "miss_rate": 0.4444,
+      "ci_low": 0.4196,
+      "ci_high": 0.4695,
+      "share_all_customers": null
+    },
+    {
+      "scenario": "fixed 30,000",
+      "version": "model removed completely",
+      "band": "Insufficient behavioural evidence",
+      "test_customers": 1087,
+      "miss_rate": 0.2576,
+      "ci_low": 0.2325,
+      "ci_high": 0.2844,
+      "share_all_customers": null
+    }
+  ],
+  "stability": {
+    "changes_tested": 22,
+    "min_spearman": 0.9968587510565524,
+    "max_band_flips": 0.0300333333333333,
+    "worst_change": "weight payback x1.2"
+  },
+  "fairness_invariance": {
+    "demographics_in_model": false,
+    "demographics_in_score": false,
+    "shuffle_invariant": true
+  },
+  "fairness_audit": [
+    {
+      "scenario": "3 x typical payment",
+      "attribute": "sex",
+      "group": "female",
+      "n": 18112.0,
+      "selection_rate": 0.6355454946996466,
+      "selection_ratio_vs_max": 1.0,
+      "observed_miss_rate": 0.20776280918727916,
+      "mean_pd": 0.21336190291178375,
+      "miss_rate_if_supportable": 0.10711493354182955,
+      "miss_if_sup_ci_low": 0.10159577014358895,
+      "miss_if_sup_ci_high": 0.11289624683734809,
+      "supportable_among_non_missers": 0.716286849257788
+    },
+    {
+      "scenario": "3 x typical payment",
+      "attribute": "sex",
+      "group": "male",
+      "n": 11888.0,
+      "selection_rate": 0.6096063257065949,
+      "selection_ratio_vs_max": 0.9591859761269957,
+      "observed_miss_rate": 0.2416722745625841,
+      "mean_pd": 0.23449650933102634,
+      "miss_rate_if_supportable": 0.12708707051193596,
+      "miss_if_sup_ci_low": 0.11961558434193392,
+      "miss_if_sup_ci_high": 0.1349537059319013,
+      "supportable_among_non_missers": 0.7017193566278425
+    },
+    {
+      "scenario": "3 x typical payment",
+      "attribute": "age band",
+      "group": "21-24",
+      "n": 2685.0,
+      "selection_rate": 0.6029795158286778,
+      "selection_ratio_vs_max": 0.94069142451402,
+      "observed_miss_rate": 0.2718808193668529,
+      "mean_pd": 0.27993576563036837,
+      "miss_rate_if_supportable": 0.1340333539221742,
+      "miss_if_sup_ci_low": 0.11830122877378456,
+      "miss_if_sup_ci_high": 0.15149811578331823,
+      "supportable_among_non_missers": 0.7171355498721228
+    },
+    {
+      "scenario": "3 x typical payment",
+      "attribute": "age band",
+      "group": "25-34",
+      "n": 13011.0,
+      "selection_rate": 0.6409960802397972,
+      "selection_ratio_vs_max": 1.0,
+      "observed_miss_rate": 0.20298209207593576,
+      "mean_pd": 0.21159746540673724,
+      "miss_rate_if_supportable": 0.10683453237410072,
+      "miss_if_sup_ci_low": 0.10038489063156852,
+      "miss_if_sup_ci_high": 0.1136462098629567,
+      "supportable_among_non_missers": 0.7183220829315333
+    },
+    {
+      "scenario": "3 x typical payment",
+      "attribute": "age band",
+      "group": "35-44",
+      "n": 9018.0,
+      "selection_rate": 0.6209802616988246,
+      "selection_ratio_vs_max": 0.9687738830891374,
+      "observed_miss_rate": 0.218562874251497,
+      "mean_pd": 0.21193245038591016,
+      "miss_rate_if_supportable": 0.11678571428571428,
+      "miss_if_sup_ci_low": 0.10863538043351033,
+      "miss_if_sup_ci_high": 0.12546145770695388,
+      "supportable_among_non_missers": 0.701858947069675
+    },
+    {
+      "scenario": "3 x typical payment",
+      "attribute": "age band",
+      "group": "45-54",
+      "n": 4233.0,
+      "selection_rate": 0.6128041578077014,
+      "selection_ratio_vs_max": 0.9560185728100722,
+      "observed_miss_rate": 0.23931018190408693,
+      "mean_pd": 0.2285567624265093,
+      "miss_rate_if_supportable": 0.12336160370084812,
+      "miss_if_sup_ci_low": 0.11126039765198742,
+      "miss_if_sup_ci_high": 0.13657672990806088,
+      "supportable_among_non_missers": 0.7062111801242236
+    },
+    {
+      "scenario": "3 x typical payment",
+      "attribute": "age band",
+      "group": "55+",
+      "n": 1053.0,
+      "selection_rate": 0.5745489078822412,
+      "selection_ratio_vs_max": 0.8963376307501008,
+      "observed_miss_rate": 0.2668566001899335,
+      "mean_pd": 0.2551714362861535,
+      "miss_rate_if_supportable": 0.11900826446280992,
+      "miss_if_sup_ci_low": 0.09557966657672423,
+      "miss_if_sup_ci_high": 0.14724473963993376,
+      "supportable_among_non_missers": 0.6904145077720207
+    },
+    {
+      "scenario": "3 x typical payment",
+      "attribute": "education",
+      "group": "graduate school",
+      "n": 10585.0,
+      "selection_rate": 0.6259801606046292,
+      "selection_ratio_vs_max": 0.8641850004807271,
+      "observed_miss_rate": 0.19234766178554558,
+      "mean_pd": 0.193408694118159,
+      "miss_rate_if_supportable": 0.09613643223664353,
+      "miss_if_sup_ci_low": 0.08927081278523488,
+      "miss_if_sup_ci_high": 0.1034700816578541,
+      "supportable_among_non_missers": 0.7005497719031466
+    },
+    {
+      "scenario": "3 x typical payment",
+      "attribute": "education",
+      "group": "high school",
+      "n": 4917.0,
+      "selection_rate": 0.6013829570876551,
+      "selection_ratio_vs_max": 0.8302277991652584,
+      "observed_miss_rate": 0.2515761643278422,
+      "mean_pd": 0.25352004083225327,
+      "miss_rate_if_supportable": 0.13121406831247887,
+      "miss_if_sup_ci_low": 0.11952142538786314,
+      "miss_if_sup_ci_high": 0.14386368781778752,
+      "supportable_among_non_missers": 0.6980978260869565
+    },
+    {
+      "scenario": "3 x typical payment",
+      "attribute": "education",
+      "group": "other / unknown",
+      "n": 468.0,
+      "selection_rate": 0.7243589743589743,
+      "selection_ratio_vs_max": 1.0,
+      "observed_miss_rate": 0.07051282051282051,
+      "mean_pd": 0.16530907970269995,
+      "miss_rate_if_supportable": 0.061946902654867256,
+      "miss_if_sup_ci_low": 0.040870370191215075,
+      "miss_if_sup_ci_high": 0.09284035802846423,
+      "supportable_among_non_missers": 0.7310344827586207
+    },
+    {
+      "scenario": "3 x typical payment",
+      "attribute": "education",
+      "group": "university",
+      "n": 14030.0,
+      "selection_rate": 0.6297933000712759,
+      "selection_ratio_vs_max": 0.8694491576205224,
+      "observed_miss_rate": 0.23734853884533144,
+      "mean_pd": 0.23385257100154686,
+      "miss_rate_if_supportable": 0.12539610683567226,
+      "miss_if_sup_ci_low": 0.11865328785627448,
+      "miss_if_sup_ci_high": 0.1324645149785636,
+      "supportable_among_non_missers": 0.7222429906542056
+    },
+    {
+      "scenario": "3 x typical payment",
+      "attribute": "marital status",
+      "group": "married",
+      "n": 13659.0,
+      "selection_rate": 0.6073651072552896,
+      "selection_ratio_vs_max": 0.9485400677189829,
+      "observed_miss_rate": 0.23471703638626545,
+      "mean_pd": 0.22306076890235002,
+      "miss_rate_if_supportable": 0.12138379942140791,
+      "miss_if_sup_ci_low": 0.11453097099199527,
+      "miss_if_sup_ci_high": 0.12858711453869726,
+      "supportable_among_non_missers": 0.6973117765234861
+    },
+    {
+      "scenario": "3 x typical payment",
+      "attribute": "marital status",
+      "group": "other / unknown",
+      "n": 377.0,
+      "selection_rate": 0.636604774535809,
+      "selection_ratio_vs_max": 0.994204521687503,
+      "observed_miss_rate": 0.23607427055702918,
+      "mean_pd": 0.24736064112577089,
+      "miss_rate_if_supportable": 0.1625,
+      "miss_if_sup_ci_low": 0.12120856194190907,
+      "miss_if_sup_ci_high": 0.21442571867304752,
+      "supportable_among_non_missers": 0.6979166666666666
+    },
+    {
+      "scenario": "3 x typical payment",
+      "attribute": "marital status",
+      "group": "single",
+      "n": 15964.0,
+      "selection_rate": 0.6403157103482836,
+      "selection_ratio_vs_max": 1.0,
+      "observed_miss_rate": 0.20928338762214985,
+      "mean_pd": 0.21999895291429802,
+      "miss_rate_if_supportable": 0.10839366073175503,
+      "miss_if_sup_ci_low": 0.1025134547286563,
+      "miss_if_sup_ci_high": 0.11456810069070397,
+      "supportable_among_non_missers": 0.7220153687712905
+    },
+    {
+      "scenario": "fixed 30,000",
+      "attribute": "sex",
+      "group": "female",
+      "n": 18112.0,
+      "selection_rate": 0.4588118374558304,
+      "selection_ratio_vs_max": 1.0,
+      "observed_miss_rate": 0.20776280918727916,
+      "mean_pd": 0.21336190291178375,
+      "miss_rate_if_supportable": 0.08471720818291216,
+      "miss_if_sup_ci_low": 0.07892027279002065,
+      "miss_if_sup_ci_high": 0.09089792533393687,
+      "supportable_among_non_missers": 0.5300717820057147
+    },
+    {
+      "scenario": "fixed 30,000",
+      "attribute": "sex",
+      "group": "male",
+      "n": 11888.0,
+      "selection_rate": 0.3966184387617766,
+      "selection_ratio_vs_max": 0.8644468306682669,
+      "observed_miss_rate": 0.2416722745625841,
+      "mean_pd": 0.23449650933102634,
+      "miss_rate_if_supportable": 0.09840933191940615,
+      "miss_if_sup_ci_low": 0.0902311095913163,
+      "miss_if_sup_ci_high": 0.10724142265049491,
+      "supportable_among_non_missers": 0.47154742096505825
+    },
+    {
+      "scenario": "fixed 30,000",
+      "attribute": "age band",
+      "group": "21-24",
+      "n": 2685.0,
+      "selection_rate": 0.2271880819366853,
+      "selection_ratio_vs_max": 0.48252434444632913,
+      "observed_miss_rate": 0.2718808193668529,
+      "mean_pd": 0.27993576563036837,
+      "miss_rate_if_supportable": 0.10491803278688525,
+      "miss_if_sup_ci_low": 0.08302192018511051,
+      "miss_if_sup_ci_high": 0.13175922205093213,
+      "supportable_among_non_missers": 0.2792838874680307
+    },
+    {
+      "scenario": "fixed 30,000",
+      "attribute": "age band",
+      "group": "25-34",
+      "n": 13011.0,
+      "selection_rate": 0.4708323726077934,
+      "selection_ratio_vs_max": 1.0,
+      "observed_miss_rate": 0.20298209207593576,
+      "mean_pd": 0.21159746540673724,
+      "miss_rate_if_supportable": 0.08129285014691479,
+      "miss_if_sup_ci_low": 0.07470880668217772,
+      "miss_if_sup_ci_high": 0.0884017050152208,
+      "supportable_among_non_missers": 0.5427193828351012
+    },
+    {
+      "scenario": "fixed 30,000",
+      "attribute": "age band",
+      "group": "35-44",
+      "n": 9018.0,
+      "selection_rate": 0.46296296296296297,
+      "selection_ratio_vs_max": 0.9832861754996917,
+      "observed_miss_rate": 0.218562874251497,
+      "mean_pd": 0.21193245038591016,
+      "miss_rate_if_supportable": 0.09317365269461078,
+      "miss_if_sup_ci_low": 0.0847264522868006,
+      "miss_if_sup_ci_high": 0.10236884225606986,
+      "supportable_among_non_missers": 0.5372498935717327
+    },
+    {
+      "scenario": "fixed 30,000",
+      "attribute": "age band",
+      "group": "45-54",
+      "n": 4233.0,
+      "selection_rate": 0.4058587290337822,
+      "selection_ratio_vs_max": 0.8620025993239536,
+      "observed_miss_rate": 0.23931018190408693,
+      "mean_pd": 0.2285567624265093,
+      "miss_rate_if_supportable": 0.10069848661233993,
+      "miss_if_sup_ci_low": 0.0873472384808998,
+      "miss_if_sup_ci_high": 0.11583149758866666,
+      "supportable_among_non_missers": 0.4798136645962733
+    },
+    {
+      "scenario": "fixed 30,000",
+      "attribute": "age band",
+      "group": "55+",
+      "n": 1053.0,
+      "selection_rate": 0.37606837606837606,
+      "selection_ratio_vs_max": 0.798730924098211,
+      "observed_miss_rate": 0.2668566001899335,
+      "mean_pd": 0.2551714362861535,
+      "miss_rate_if_supportable": 0.1111111111111111,
+      "miss_if_sup_ci_low": 0.08381718100051569,
+      "miss_if_sup_ci_high": 0.145877778203329,
+      "supportable_among_non_missers": 0.45595854922279794
+    },
+    {
+      "scenario": "fixed 30,000",
+      "attribute": "education",
+      "group": "graduate school",
+      "n": 10585.0,
+      "selection_rate": 0.5053377420878602,
+      "selection_ratio_vs_max": 0.938484378163169,
+      "observed_miss_rate": 0.19234766178554558,
+      "mean_pd": 0.193408694118159,
+      "miss_rate_if_supportable": 0.08207141521779772,
+      "miss_if_sup_ci_low": 0.0750122420125413,
+      "miss_if_sup_ci_high": 0.0897304621242671,
+      "supportable_among_non_missers": 0.5743361796701368
+    },
+    {
+      "scenario": "fixed 30,000",
+      "attribute": "education",
+      "group": "high school",
+      "n": 4917.0,
+      "selection_rate": 0.35509456985967053,
+      "selection_ratio_vs_max": 0.6594613440251025,
+      "observed_miss_rate": 0.2515761643278422,
+      "mean_pd": 0.25352004083225327,
+      "miss_rate_if_supportable": 0.1013745704467354,
+      "miss_if_sup_ci_low": 0.08808066870943207,
+      "miss_if_sup_ci_high": 0.11641875569561122,
+      "supportable_among_non_missers": 0.42635869565217394
+    },
+    {
+      "scenario": "fixed 30,000",
+      "attribute": "education",
+      "group": "other / unknown",
+      "n": 468.0,
+      "selection_rate": 0.5384615384615384,
+      "selection_ratio_vs_max": 1.0,
+      "observed_miss_rate": 0.07051282051282051,
+      "mean_pd": 0.16530907970269995,
+      "miss_rate_if_supportable": 0.047619047619047616,
+      "miss_if_sup_ci_low": 0.027446661288615858,
+      "miss_if_sup_ci_high": 0.08137692330435103,
+      "supportable_among_non_missers": 0.5517241379310345
+    },
+    {
+      "scenario": "fixed 30,000",
+      "attribute": "education",
+      "group": "university",
+      "n": 14030.0,
+      "selection_rate": 0.404704205274412,
+      "selection_ratio_vs_max": 0.7515935240810508,
+      "observed_miss_rate": 0.23734853884533144,
+      "mean_pd": 0.23385257100154686,
+      "miss_rate_if_supportable": 0.09510390982740402,
+      "miss_if_sup_ci_low": 0.08774476798635561,
+      "miss_if_sup_ci_high": 0.10301056739645409,
+      "supportable_among_non_missers": 0.48018691588785045
+    },
+    {
+      "scenario": "fixed 30,000",
+      "attribute": "marital status",
+      "group": "married",
+      "n": 13659.0,
+      "selection_rate": 0.44073504648949413,
+      "selection_ratio_vs_max": 1.0,
+      "observed_miss_rate": 0.23471703638626545,
+      "mean_pd": 0.22306076890235002,
+      "miss_rate_if_supportable": 0.09767441860465116,
+      "miss_if_sup_ci_low": 0.09042953923630727,
+      "miss_if_sup_ci_high": 0.10543245022901997,
+      "supportable_among_non_missers": 0.519659427915431
+    },
+    {
+      "scenario": "fixed 30,000",
+      "attribute": "marital status",
+      "group": "other / unknown",
+      "n": 377.0,
+      "selection_rate": 0.3050397877984085,
+      "selection_ratio_vs_max": 0.6921160235113724,
+      "observed_miss_rate": 0.23607427055702918,
+      "mean_pd": 0.24736064112577089,
+      "miss_rate_if_supportable": 0.10434782608695652,
+      "miss_if_sup_ci_low": 0.06070443425864049,
+      "miss_if_sup_ci_high": 0.1735704324546989,
+      "supportable_among_non_missers": 0.3576388888888889
+    },
+    {
+      "scenario": "fixed 30,000",
+      "attribute": "marital status",
+      "group": "single",
+      "n": 15964.0,
+      "selection_rate": 0.43159609120521175,
+      "selection_ratio_vs_max": 0.9792642873375393,
+      "observed_miss_rate": 0.20928338762214985,
+      "mean_pd": 0.21999895291429802,
+      "miss_rate_if_supportable": 0.08243831640058055,
+      "miss_if_sup_ci_low": 0.07617439965357772,
+      "miss_if_sup_ci_high": 0.08916760646388225,
+      "supportable_among_non_missers": 0.5008318149409807
+    }
+  ],
+  "fairness_disparity": [
+    {
+      "scenario": "3 x typical payment",
+      "attribute": "sex",
+      "min_selection_ratio": 0.9591859761269957,
+      "selection_rate_range": [
+        0.6096063257065949,
+        0.6355454946996466
+      ],
+      "miss_if_supportable_range": [
+        0.10711493354182955,
+        0.12708707051193596
+      ],
+      "equal_opportunity_gap": 0.0145674926299455
+    },
+    {
+      "scenario": "3 x typical payment",
+      "attribute": "age band",
+      "min_selection_ratio": 0.8963376307501008,
+      "selection_rate_range": [
+        0.5745489078822412,
+        0.6409960802397972
+      ],
+      "miss_if_supportable_range": [
+        0.10683453237410072,
+        0.1340333539221742
+      ],
+      "equal_opportunity_gap": 0.027907575159512588
+    },
+    {
+      "scenario": "3 x typical payment",
+      "attribute": "education",
+      "min_selection_ratio": 0.8302277991652584,
+      "selection_rate_range": [
+        0.6013829570876551,
+        0.7243589743589743
+      ],
+      "miss_if_supportable_range": [
+        0.061946902654867256,
+        0.13121406831247887
+      ],
+      "equal_opportunity_gap": 0.03293665667166423
+    },
+    {
+      "scenario": "3 x typical payment",
+      "attribute": "marital status",
+      "min_selection_ratio": 0.9485400677189829,
+      "selection_rate_range": [
+        0.6073651072552896,
+        0.6403157103482836
+      ],
+      "miss_if_supportable_range": [
+        0.10839366073175503,
+        0.1625
+      ],
+      "equal_opportunity_gap": 0.024703592247804385
+    },
+    {
+      "scenario": "fixed 30,000",
+      "attribute": "sex",
+      "min_selection_ratio": 0.8644468306682669,
+      "selection_rate_range": [
+        0.3966184387617766,
+        0.4588118374558304
+      ],
+      "miss_if_supportable_range": [
+        0.08471720818291216,
+        0.09840933191940615
+      ],
+      "equal_opportunity_gap": 0.05852436104065645
+    },
+    {
+      "scenario": "fixed 30,000",
+      "attribute": "age band",
+      "min_selection_ratio": 0.48252434444632913,
+      "selection_rate_range": [
+        0.2271880819366853,
+        0.4708323726077934
+      ],
+      "miss_if_supportable_range": [
+        0.08129285014691479,
+        0.1111111111111111
+      ],
+      "equal_opportunity_gap": 0.26343549536707056
+    },
+    {
+      "scenario": "fixed 30,000",
+      "attribute": "education",
+      "min_selection_ratio": 0.6594613440251025,
+      "selection_rate_range": [
+        0.35509456985967053,
+        0.5384615384615384
+      ],
+      "miss_if_supportable_range": [
+        0.047619047619047616,
+        0.1013745704467354
+      ],
+      "equal_opportunity_gap": 0.1479774840179629
+    },
+    {
+      "scenario": "fixed 30,000",
+      "attribute": "marital status",
+      "min_selection_ratio": 0.6921160235113724,
+      "selection_rate_range": [
+        0.3050397877984085,
+        0.44073504648949413
+      ],
+      "miss_if_supportable_range": [
+        0.08243831640058055,
+        0.10434782608695652
+      ],
+      "equal_opportunity_gap": 0.16202053902654207
+    }
+  ],
+  "fairness_drivers": [
+    {
+      "group": "female",
+      "pts_model_risk": 8.080941983027245,
+      "pts_repayment": 6.233160335689046,
+      "pts_coverage": 0.3742764933634175,
+      "pts_payback": 4.881570229681978,
+      "pts_request_vs_limit": 4.9483792751225755,
+      "pts_utilization": 0.9652530003960754,
+      "median_limit": 150000.0,
+      "median_typical_payment": 1804.25,
+      "mean_late_months": 0.7790967314487632,
+      "insufficient_evidence_share": 0.18214443462897525,
+      "attribute": "sex"
+    },
+    {
+      "group": "male",
+      "pts_model_risk": 7.027472119911502,
+      "pts_repayment": 5.763795423956932,
+      "pts_coverage": -0.4033153236491529,
+      "pts_payback": 4.88215006729475,
+      "pts_request_vs_limit": 4.942078617971845,
+      "pts_utilization": 0.8158279759295749,
+      "median_limit": 130000.0,
+      "median_typical_payment": 1650.0,
+      "mean_late_months": 0.9181527590847914,
+      "insufficient_evidence_share": 0.16874158815612383,
+      "attribute": "sex"
+    },
+    {
+      "group": "21-24",
+      "pts_model_risk": 4.880399128121167,
+      "pts_repayment": 5.018621973929236,
+      "pts_coverage": -1.516418157017017,
+      "pts_payback": 5.214525139664803,
+      "pts_request_vs_limit": 4.903319072487368,
+      "pts_utilization": 0.6398166647438644,
+      "median_limit": 50000.0,
+      "median_typical_payment": 1208.5,
+      "mean_late_months": 1.1001862197392924,
+      "insufficient_evidence_share": 0.09459962756052141,
+      "attribute": "age band"
+    },
+    {
+      "group": "25-34",
+      "pts_model_risk": 8.107796196833815,
+      "pts_repayment": 6.170419901109319,
+      "pts_coverage": 0.06135281988974936,
+      "pts_payback": 4.961724694489278,
+      "pts_request_vs_limit": 4.949246306664931,
+      "pts_utilization": 0.9915975344554357,
+      "median_limit": 150000.0,
+      "median_typical_payment": 1963.5,
+      "mean_late_months": 0.8082391822304205,
+      "insufficient_evidence_share": 0.17154715240949966,
+      "attribute": "age band"
+    },
+    {
+      "group": "35-44",
+      "pts_model_risk": 8.152710076083043,
+      "pts_repayment": 6.27060693427959,
+      "pts_coverage": 0.5648033681926984,
+      "pts_payback": 4.711465956974938,
+      "pts_request_vs_limit": 4.95073037088409,
+      "pts_utilization": 0.9483365699728519,
+      "median_limit": 180000.0,
+      "median_typical_payment": 1977.0,
+      "mean_late_months": 0.7695719671767576,
+      "insufficient_evidence_share": 0.20170769571967176,
+      "attribute": "age band"
+    },
+    {
+      "group": "45-54",
+      "pts_model_risk": 7.3858561267066305,
+      "pts_repayment": 6.013071895424837,
+      "pts_coverage": 0.137184605374597,
+      "pts_payback": 4.8714859437751,
+      "pts_request_vs_limit": 4.951180728430323,
+      "pts_utilization": 0.7893672603549883,
+      "median_limit": 130000.0,
+      "median_typical_payment": 1601.0,
+      "mean_late_months": 0.8464446019371604,
+      "insufficient_evidence_share": 0.1880463028584928,
+      "attribute": "age band"
+    },
+    {
+      "group": "55+",
+      "pts_model_risk": 6.196327950257597,
+      "pts_repayment": 5.37037037037037,
+      "pts_coverage": -0.39553154477699226,
+      "pts_payback": 4.546058879392212,
+      "pts_request_vs_limit": 4.9500343093495704,
+      "pts_utilization": 0.6345216090120699,
+      "median_limit": 120000.0,
+      "median_typical_payment": 1473.0,
+      "mean_late_months": 0.9810066476733144,
+      "insufficient_evidence_share": 0.19373219373219372,
+      "attribute": "age band"
+    },
+    {
+      "group": "graduate school",
+      "pts_model_risk": 8.99806428797269,
+      "pts_repayment": 6.596756416312393,
+      "pts_coverage": 1.6498954535933132,
+      "pts_payback": 4.4094473311289555,
+      "pts_request_vs_limit": 4.947121544516602,
+      "pts_utilization": 1.1265509086898202,
+      "median_limit": 200000.0,
+      "median_typical_payment": 2000.0,
+      "mean_late_months": 0.6658478979688238,
+      "insufficient_evidence_share": 0.23448275862068965,
+      "attribute": "education"
+    },
+    {
+      "group": "high school",
+      "pts_model_risk": 6.169928269265643,
+      "pts_repayment": 5.4189546471425665,
+      "pts_coverage": -0.7831531788456685,
+      "pts_payback": 5.0431157209680695,
+      "pts_request_vs_limit": 4.931105649952652,
+      "pts_utilization": 0.7263932017011728,
+      "median_limit": 80000.0,
+      "median_typical_payment": 1500.0,
+      "mean_late_months": 0.9918649583079113,
+      "insufficient_evidence_share": 0.14683750254220052,
+      "attribute": "education"
+    },
+    {
+      "group": "other / unknown",
+      "pts_model_risk": 10.580205846880412,
+      "pts_repayment": 8.247863247863247,
+      "pts_coverage": 0.431022084338376,
+      "pts_payback": 4.4572649572649565,
+      "pts_request_vs_limit": 4.930885058292098,
+      "pts_utilization": 0.6360677966944916,
+      "median_limit": 170000.0,
+      "median_typical_payment": 2184.0,
+      "mean_late_months": 0.2329059829059829,
+      "insufficient_evidence_share": 0.19444444444444445,
+      "attribute": "education"
+    },
+    {
+      "group": "university",
+      "pts_model_risk": 7.0827530743825555,
+      "pts_repayment": 5.779282489902591,
+      "pts_coverage": -0.8432511939497034,
+      "pts_payback": 5.195794725588025,
+      "pts_request_vs_limit": 4.950626785792106,
+      "pts_utilization": 0.8116414006361418,
+      "median_limit": 110000.0,
+      "median_typical_payment": 1712.5,
+      "mean_late_months": 0.926015680684248,
+      "insufficient_evidence_share": 0.14326443335709194,
+      "attribute": "education"
+    },
+    {
+      "group": "married",
+      "pts_model_risk": 7.620859650129832,
+      "pts_repayment": 5.968714156722064,
+      "pts_coverage": 0.30554378465347365,
+      "pts_payback": 4.792078483051467,
+      "pts_request_vs_limit": 4.956107373073,
+      "pts_utilization": 0.9135513587728475,
+      "median_limit": 160000.0,
+      "median_typical_payment": 1801.5,
+      "mean_late_months": 0.8483051467896625,
+      "insufficient_evidence_share": 0.19445054542792298,
+      "attribute": "marital status"
+    },
+    {
+      "group": "other / unknown",
+      "pts_model_risk": 6.513996428428393,
+      "pts_repayment": 5.769230769230769,
+      "pts_coverage": -0.5323920082357918,
+      "pts_payback": 5.151193633952254,
+      "pts_request_vs_limit": 4.897158312702623,
+      "pts_utilization": 0.6839809131754666,
+      "median_limit": 60000.0,
+      "median_typical_payment": 1250.0,
+      "mean_late_months": 0.8806366047745358,
+      "insufficient_evidence_share": 0.14323607427055704,
+      "attribute": "marital status"
+    },
+    {
+      "group": "single",
+      "pts_model_risk": 7.727105433691838,
+      "pts_repayment": 6.1208552576630755,
+      "pts_coverage": -0.12455697113629505,
+      "pts_payback": 4.952204961162615,
+      "pts_request_vs_limit": 4.93828468734505,
+      "pts_utilization": 0.9048588390928982,
+      "median_limit": 130000.0,
+      "median_typical_payment": 1750.0,
+      "mean_late_months": 0.8210348283638186,
+      "insufficient_evidence_share": 0.1625532448008018,
+      "attribute": "marital status"
+    }
+  ],
+  "fairness_within_supportable": [
+    {
+      "group": "female",
+      "n": 11511,
+      "mean_predicted": 0.11248753476980249,
+      "observed": 0.10711493354182955,
+      "mean_score": 85.51566327860309,
+      "attribute": "sex",
+      "observed_minus_predicted": -0.005372601227972937
+    },
+    {
+      "group": "male",
+      "n": 7247,
+      "mean_predicted": 0.11832378854342468,
+      "observed": 0.12708707051193596,
+      "mean_score": 84.52676969780599,
+      "attribute": "sex",
+      "observed_minus_predicted": 0.008763281968511283
+    },
+    {
+      "group": "21-24",
+      "n": 1619,
+      "mean_predicted": 0.1494401005182496,
+      "observed": 0.1340333539221742,
+      "mean_score": 82.36300185299568,
+      "attribute": "age band",
+      "observed_minus_predicted": -0.01540674659607541
+    },
+    {
+      "group": "25-34",
+      "n": 8340,
+      "mean_predicted": 0.1096262760664993,
+      "observed": 0.10683453237410072,
+      "mean_score": 85.39402877697842,
+      "attribute": "age band",
+      "observed_minus_predicted": -0.0027917436923985822
+    },
+    {
+      "group": "35-44",
+      "n": 5600,
+      "mean_predicted": 0.1088089894735131,
+      "observed": 0.11678571428571428,
+      "mean_score": 85.83026785714286,
+      "attribute": "age band",
+      "observed_minus_predicted": 0.007976724812201186
+    },
+    {
+      "group": "45-54",
+      "n": 2594,
+      "mean_predicted": 0.12069942940217929,
+      "observed": 0.12336160370084812,
+      "mean_score": 84.78596761757902,
+      "attribute": "age band",
+      "observed_minus_predicted": 0.002662174298668829
+    },
+    {
+      "group": "55+",
+      "n": 605,
+      "mean_predicted": 0.12179368967738578,
+      "observed": 0.11900826446280992,
+      "mean_score": 84.0001652892562,
+      "attribute": "age band",
+      "observed_minus_predicted": -0.002785425214575865
+    },
+    {
+      "group": "graduate school",
+      "n": 6626,
+      "mean_predicted": 0.10429907426862305,
+      "observed": 0.09613643223664353,
+      "mean_score": 87.08904316329611,
+      "attribute": "education",
+      "observed_minus_predicted": -0.008162642031979514
+    },
+    {
+      "group": "high school",
+      "n": 2957,
+      "mean_predicted": 0.12716703888685285,
+      "observed": 0.13121406831247887,
+      "mean_score": 83.78907676699357,
+      "attribute": "education",
+      "observed_minus_predicted": 0.004047029425626014
+    },
+    {
+      "group": "other / unknown",
+      "n": 339,
+      "mean_predicted": 0.10862815222962295,
+      "observed": 0.061946902654867256,
+      "mean_score": 85.1646017699115,
+      "attribute": "education",
+      "observed_minus_predicted": -0.046681249574755695
+    },
+    {
+      "group": "university",
+      "n": 8836,
+      "mean_predicted": 0.11865017707234414,
+      "observed": 0.12539610683567226,
+      "mean_score": 84.11602535083748,
+      "attribute": "education",
+      "observed_minus_predicted": 0.006745929763328121
+    },
+    {
+      "group": "married",
+      "n": 8296,
+      "mean_predicted": 0.11148615183539369,
+      "observed": 0.12138379942140791,
+      "mean_score": 85.5324011571842,
+      "attribute": "marital status",
+      "observed_minus_predicted": 0.009897647586014219
+    },
+    {
+      "group": "other / unknown",
+      "n": 240,
+      "mean_predicted": 0.14023230247711058,
+      "observed": 0.1625,
+      "mean_score": 83.22291666666666,
+      "attribute": "marital status",
+      "observed_minus_predicted": 0.02226769752288943
+    },
+    {
+      "group": "single",
+      "n": 10222,
+      "mean_predicted": 0.11678650362829804,
+      "observed": 0.10839366073175503,
+      "mean_score": 84.85482293093328,
+      "attribute": "marital status",
+      "observed_minus_predicted": -0.008392842896543004
+    }
+  ],
+  "fairness_proxy": [
+    {
+      "attribute": "male",
+      "positive_share": 0.39626666666666666,
+      "roc_auc_from_score_inputs": 0.5527100492338218
+    },
+    {
+      "attribute": "age under 30",
+      "positive_share": 0.3206,
+      "roc_auc_from_score_inputs": 0.6507885354007694
+    },
+    {
+      "attribute": "graduate school",
+      "positive_share": 0.35283333333333333,
+      "roc_auc_from_score_inputs": 0.6814983277396681
+    },
+    {
+      "attribute": "married",
+      "positive_share": 0.4553,
+      "roc_auc_from_score_inputs": 0.5668471641481223
+    }
+  ],
+  "fairness_disparity_test_only": [
+    {
+      "attribute": "sex",
+      "min_selection_ratio": 0.9901720393148059,
+      "selection_rate_range": [
+        0.6186511240632806,
+        0.6247915508615898
+      ],
+      "miss_if_supportable_range": [
+        0.10631672597864769,
+        0.11574697173620457
+      ],
+      "equal_opportunity_gap": 0.00434987586579394
+    },
+    {
+      "attribute": "age band",
+      "min_selection_ratio": 0.9187720759136913,
+      "selection_rate_range": [
+        0.589648798521257,
+        0.6417791898332009
+      ],
+      "miss_if_supportable_range": [
+        0.09715346534653466,
+        0.12333965844402277
+      ],
+      "equal_opportunity_gap": 0.031490225180146214
+    },
+    {
+      "attribute": "education",
+      "min_selection_ratio": 0.8546895191457525,
+      "selection_rate_range": [
+        0.6045364891518737,
+        0.7073170731707317
+      ],
+      "miss_if_supportable_range": [
+        0.05172413793103448,
+        0.15171288743882544
+      ],
+      "equal_opportunity_gap": 0.028503549541211926
+    },
+    {
+      "attribute": "marital status",
+      "min_selection_ratio": 0.873099163214812,
+      "selection_rate_range": [
+        0.6053487531622697,
+        0.6933333333333334
+      ],
+      "miss_if_supportable_range": [
+        0.0981564524165421,
+        0.12417910447761193
+      ],
+      "equal_opportunity_gap": 0.03125449004438996
+    }
+  ],
+  "generated_by": "notebooks/09_final_evaluation.ipynb",
+  "generated_at": "2026-11-09T17:17:32"
+}

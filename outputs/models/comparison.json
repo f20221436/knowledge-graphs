@@ -1,0 +1,97 @@
+{
+  "verdict": "No reliable improvement: the graph features do not measurably improve default prediction beyond the baseline.",
+  "improved": false,
+  "pd_model": "A",
+  "bootstrap": {
+    "delta_roc_auc": -0.0007734954171626507,
+    "roc_auc_ci": [
+      -0.0019261721850784314,
+      0.0003847408450858923
+    ],
+    "p_b_not_better_roc": 0.907,
+    "delta_pr_auc": -0.0009169972947258298,
+    "pr_auc_ci": [
+      -0.0031816966743469176,
+      0.001269361855555052
+    ]
+  },
+  "cv_tests": {
+    "B - A (roc_auc)": {
+      "mean_diff": -8.218938162233513e-05,
+      "folds_b_better": 12,
+      "folds": 25,
+      "t": -0.22638363349208612,
+      "p_value": 0.8228200647445512
+    },
+    "B - A (pr_auc)": {
+      "mean_diff": -0.00010183010868617171,
+      "folds_b_better": 11,
+      "folds": 25,
+      "t": -0.15611913465802602,
+      "p_value": 0.87724489295428
+    },
+    "B_no_population - A (roc_auc)": {
+      "mean_diff": -0.0001569638863064915,
+      "folds_b_better": 10,
+      "folds": 25,
+      "t": -0.4512039673406871,
+      "p_value": 0.6558931622598072
+    },
+    "B_no_population - A (pr_auc)": {
+      "mean_diff": -0.0001607325975028706,
+      "folds_b_better": 10,
+      "folds": 25,
+      "t": -0.2099082240915225,
+      "p_value": 0.8355110522492948
+    }
+  },
+  "threshold_B": 0.521017683734545,
+  "features_B": [
+    "credit_limit",
+    "status_m1",
+    "status_m2",
+    "status_m3",
+    "status_m4",
+    "status_m5",
+    "status_m6",
+    "bill_m1",
+    "bill_m2",
+    "bill_m3",
+    "bill_m4",
+    "bill_m5",
+    "bill_m6",
+    "pay_m1",
+    "pay_m2",
+    "pay_m3",
+    "pay_m4",
+    "pay_m5",
+    "pay_m6",
+    "util_avg",
+    "util_slope",
+    "high_util_months",
+    "inactive_flag",
+    "coverage_median",
+    "coverage_min",
+    "coverage_latest",
+    "weak_cov_months",
+    "full_pay_months",
+    "late_months",
+    "late_recent3",
+    "max_status",
+    "status_latest",
+    "paid_full_months",
+    "no_use_months",
+    "pay_median",
+    "pay_latest",
+    "zero_pay_months",
+    "g_max_late_streak",
+    "g_late_onsets",
+    "g_recoveries",
+    "g_relapses",
+    "g_latest_transition",
+    "g_max_util_rise_run",
+    "g_weak_cov_after_late",
+    "g_markov_next_late_prob",
+    "g_path_typicality"
+  ]
+}

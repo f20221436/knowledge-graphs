@@ -1,0 +1,25 @@
+scenario,version,band,test_customers,miss_rate,ci_low,ci_high,share_all_customers
+3 x typical payment,full score,Supportable in this scenario,3734,0.1101,0.1004,0.1205,0.6252666666666666
+3 x typical payment,full score,Review,320,0.3219,0.2731,0.3749,0.05503333333333333
+3 x typical payment,full score,Not supportable in this scenario,868,0.6198,0.5871,0.6515,0.14286666666666667
+3 x typical payment,full score,Insufficient behavioural evidence,1078,0.2551,0.23,0.282,0.17683333333333334
+3 x typical payment,model-risk factor removed (PD gate kept),Supportable in this scenario,3707,0.1136,0.1038,0.1242,
+3 x typical payment,model-risk factor removed (PD gate kept),Review,437,0.2792,0.2392,0.323,
+3 x typical payment,model-risk factor removed (PD gate kept),Not supportable in this scenario,778,0.6542,0.6201,0.6868,
+3 x typical payment,model-risk factor removed (PD gate kept),Insufficient behavioural evidence,1078,0.2551,0.23,0.282,
+3 x typical payment,model removed completely,Supportable in this scenario,3707,0.1136,0.1038,0.1242,
+3 x typical payment,model removed completely,Review,466,0.2983,0.2585,0.3413,
+3 x typical payment,model removed completely,Not supportable in this scenario,740,0.6581,0.6232,0.6914,
+3 x typical payment,model removed completely,Insufficient behavioural evidence,1087,0.2576,0.2325,0.2844,
+"fixed 30,000",full score,Supportable in this scenario,2604,0.0945,0.0838,0.1063,0.43416666666666665
+"fixed 30,000",full score,Review,1213,0.1566,0.1373,0.1782,0.20526666666666665
+"fixed 30,000",full score,Not supportable in this scenario,1105,0.5575,0.528,0.5865,0.18373333333333333
+"fixed 30,000",full score,Insufficient behavioural evidence,1078,0.2551,0.23,0.282,0.17683333333333334
+"fixed 30,000",model-risk factor removed (PD gate kept),Supportable in this scenario,1638,0.0879,0.0751,0.1026,
+"fixed 30,000",model-risk factor removed (PD gate kept),Review,1754,0.1294,0.1145,0.1459,
+"fixed 30,000",model-risk factor removed (PD gate kept),Not supportable in this scenario,1530,0.4451,0.4204,0.4701,
+"fixed 30,000",model-risk factor removed (PD gate kept),Insufficient behavioural evidence,1078,0.2551,0.23,0.282,
+"fixed 30,000",model removed completely,Supportable in this scenario,1638,0.0879,0.0751,0.1026,
+"fixed 30,000",model removed completely,Review,1754,0.1294,0.1145,0.1459,
+"fixed 30,000",model removed completely,Not supportable in this scenario,1521,0.4444,0.4196,0.4695,
+"fixed 30,000",model removed completely,Insufficient behavioural evidence,1087,0.2576,0.2325,0.2844,

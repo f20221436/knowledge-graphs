@@ -1,0 +1,10 @@
+pattern,customers,train_default_rate,train_ci,test_default_rate,test_ci,lift_vs_base
+Q1 late in >=3 of 6 months,3744,0.599,"[0.581, 0.616]",0.603,"[0.568, 0.638]",2.71
+Q2 late >=3 months in a row,3297,0.604,"[0.585, 0.623]",0.604,"[0.567, 0.641]",2.73
+Q3 utilization >=90% in >=3 months,5062,0.305,"[0.291, 0.319]",0.285,"[0.258, 0.313]",1.38
+Q4 utilization rose >=3 months running,1300,0.193,"[0.170, 0.218]",0.225,"[0.178, 0.281]",0.87
+Q5 recovered and clean in last 3 months,1629,0.235,"[0.213, 0.259]",0.184,"[0.146, 0.230]",1.06
+Q6 paid <10% of statement in >=3 months,15433,0.267,"[0.259, 0.275]",0.261,"[0.246, 0.277]",1.21
+"Q7 always paid in full, never late",3652,0.118,"[0.107, 0.130]",0.12,"[0.099, 0.146]",0.53
+Q8 >=2 concerning signals,8149,0.429,"[0.417, 0.442]",0.418,"[0.394, 0.442]",1.94
+"Q10 relapse (late, recovered, late again)",1073,0.544,"[0.511, 0.576]",0.525,"[0.452, 0.598]",2.46

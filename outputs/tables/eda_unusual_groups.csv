@@ -1,0 +1,7 @@
+,customers,default_rate
+all training customers,24000.0,0.221
+any utilization > 100%,3129.0,0.304
+any negative bill (credit balance),1553.0,0.157
+all six bills zero,699.0,0.365
+all six payments zero,1139.0,0.371
+inactive (utilization <= 2% every month),3238.0,0.248

@@ -1,0 +1,6 @@
+* text=auto
+*.pdf binary
+*.pptx binary
+*.parquet binary
+*.png binary
+*.pkl binary

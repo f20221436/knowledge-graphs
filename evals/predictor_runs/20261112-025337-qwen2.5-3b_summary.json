@@ -1,0 +1,116 @@
+{
+  "customers": 400,
+  "positives": 88,
+  "parsed": 400,
+  "coverage": 1.0,
+  "distinct_llm_values": 43,
+  "llm_mean_probability": 0.485843967065,
+  "observed_rate": 0.22,
+  "models": {
+    "LLM": {
+      "roc_auc": 0.6079181235431235,
+      "roc_ci": [
+        0.5441502324749574,
+        0.6682929747503642
+      ],
+      "brier": 0.38865449556537596
+    },
+    "Random Forest (raw)": {
+      "roc_auc": 0.7720352564102565,
+      "roc_ci": [
+        0.7117368644006009,
+        0.8285186040785985
+      ],
+      "brier": 0.17590914864024287
+    },
+    "Calibrated PD (RF)": {
+      "roc_auc": 0.7733646561771562,
+      "roc_ci": [
+        0.7136505916800429,
+        0.8300027284467958
+      ],
+      "brier": 0.13731392699729228
+    },
+    "Logistic regression": {
+      "roc_auc": 0.7347756410256411,
+      "roc_ci": [
+        0.6704134128126831,
+        0.7965298393062732
+      ],
+      "brier": 0.1956016153246894
+    }
+  },
+  "paired_differences": {
+    "LLM - Random Forest (raw)": {
+      "delta_roc_auc": -0.16411713286713303,
+      "ci": [
+        -0.22886392896454114,
+        -0.0989074885273259
+      ]
+    },
+    "LLM - Calibrated PD (RF)": {
+      "delta_roc_auc": -0.16544653263403275,
+      "ci": [
+        -0.22985029600837856,
+        -0.10071659445028028
+      ]
+    },
+    "LLM - Logistic regression": {
+      "delta_roc_auc": -0.1268575174825176,
+      "ci": [
+        -0.19252515331121514,
+        -0.05780899441971073
+      ]
+    }
+  },
+  "latency_mean_s": 48.915704999999996,
+  "latency_p50_s": 5.890000000000001,
+  "latency_p95_s": 7.718899999999999,
+  "calls_over_60s": 3,
+  "top_llm_values": [
+    [
+      0.0,
+      150
+    ],
+    [
+      0.999,
+      63
+    ],
+    [
+      0.85,
+      44
+    ],
+    [
+      0.95,
+      36
+    ],
+    [
+      0.99,
+      18
+    ]
+  ],
+  "tokens_per_call": 666.6625,
+  "cost_usd": 0.0,
+  "calls_total": 600,
+  "determinism_temp0": {
+    "customers": 20,
+    "identical_share": 0.85
+  },
+  "consistency": {
+    "temperature": 0.8,
+    "customers": 60,
+    "runs": 3,
+    "mean_abs_difference": 0.08098049518053518,
+    "all_runs_identical_share": 0.18333333333333332,
+    "mean_spearman_between_runs": 0.901793918910056,
+    "roc_auc_per_run": [
+      0.6514762516046213,
+      0.668806161745828,
+      0.6322207958921694
+    ]
+  },
+  "run_id": "20261112-025337-qwen2.5-3b",
+  "model": "qwen2.5:3b",
+  "started": "2026-11-12T02:53:37",
+  "code_version": "nogit-3aa4320bb5c9"
+}

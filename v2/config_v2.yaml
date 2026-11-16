@@ -1,0 +1,23 @@
+# v2 settings. v1 files are never modified; v2 reads v1 outputs and adds to them.
+
+expected_loss:
+  # Loss given default: share of the drawn amount that is lost if the customer defaults.
+  # The dataset has no recovery information, so 1.0 (lose everything drawn) is a conservative ASSUMPTION.
+  lgd: 1.0
+  # How much of the new headroom the customer is expected to use = their own typical utilization
+  # (median of the six months, capped to [0, 1]). Relative to their own behaviour, not a fixed rate.
+  usage_basis: median_utilization
+
+counterfactual:
+  search_iterations: 25        # binary-search steps (score is monotone in each lever, so this is exact enough)
+
+scorecard:
+  n_bins: 5                    # quantile bins per feature before merging
+  min_bin_share: 0.05          # bins smaller than 5% of customers are merged
+  base_score: 600              # points at the base odds
+  base_odds: 50                # good:bad odds that map to base_score
+  pdo: 20                      # points to double the odds
+  allow_non_monotone: [util_avg]   # utilization is genuinely U-shaped (validated in v1 notebook 03)
+  features_without_graph: [late_months, late_recent3, status_latest, max_status, coverage_median,
+                           util_avg, credit_limit, pay_median, high_util_months, zero_pay_months]
+  graph_features: [g_markov_next_late_prob, g_relapses, g_recoveries, g_path_typicality, g_weak_cov_after_late]

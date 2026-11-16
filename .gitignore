@@ -1,0 +1,14 @@
+.env
+.venv/
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+.pytest_cache/
+data/processed/
+data/features/
+outputs/models/*.pkl
+runs/
+*.egg-info/
+
+# data restored from an unrelated earlier project
+backups/

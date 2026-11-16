@@ -1,0 +1,194 @@
+{
+ "c102": {
+  "pts_model_risk": 14.2,
+  "pts_repayment": 10.0,
+  "pts_coverage": -5.3,
+  "pts_payback": 7.0,
+  "pts_request_vs_limit": 5.0,
+  "pts_utilization": 2.0,
+  "score": 82.9,
+  "band": "Supportable in this scenario",
+  "gate": "",
+  "pd": 0.11319605544735682,
+  "limit": 380000.0,
+  "pay_median": 1223.5,
+  "request": 3670.5,
+  "late": 0,
+  "status": -2,
+  "coverage": 0.03618373120164907,
+  "util": 0.0,
+  "payback": 3.0,
+  "to_limit": 0.00965921052631579,
+  "sub_model_risk": 0.9736078891052864,
+  "sub_repayment": 1.0,
+  "sub_coverage": 0.14473492480659628,
+  "sub_payback": 0.85,
+  "sub_request_vs_limit": 1.0,
+  "sub_utilization": 0.9
+ },
+ "c2": {
+  "pts_model_risk": 0.2,
+  "pts_repayment": 3.3,
+  "pts_coverage": 1.3,
+  "pts_payback": 7.0,
+  "pts_request_vs_limit": 5.0,
+  "pts_utilization": 2.1,
+  "score": 69.0,
+  "band": "Review",
+  "gate": "",
+  "pd": 0.34679553510330297,
+  "limit": 120000.0,
+  "pay_median": 1000.0,
+  "request": 3000.0,
+  "late": 2,
+  "status": -1,
+  "coverage": 0.2894356005788712,
+  "util": 0.02235,
+  "payback": 3.0,
+  "to_limit": 0.025,
+  "sub_model_risk": 0.506408929793394,
+  "sub_repayment": 0.6666666666666667,
+  "sub_coverage": 0.5894356005788712,
+  "sub_payback": 0.85,
+  "sub_request_vs_limit": 1.0,
+  "sub_utilization": 0.92235
+ },
+ "c1825": {
+  "score": 71.0,
+  "band": "Not supportable in this scenario",
+  "gate": "high risk (PD >= 0.50 or latest month 2+ months late)",
+  "pd": 0.3303983084491512,
+  "late": 1,
+  "status": 2,
+  "pay_median": 2050.5,
+  "limit": 70000.0
+ },
+ "c10": {
+  "score": 74.3,
+  "band": "Insufficient behavioural evidence",
+  "gate": "insufficient evidence (inactive account or no payments)",
+  "pd": 0.14126072739338041,
+  "late": 0,
+  "status": -2,
+  "pay_median": 0.0,
+  "limit": 20000.0
+ },
+ "band_default": {
+  "Supportable in this scenario": [
+   0.11006963042313872,
+   3734
+  ],
+  "Review": [
+   0.321875,
+   320
+  ],
+  "Not supportable in this scenario": [
+   0.619815668202765,
+   868
+  ],
+  "Insufficient behavioural evidence": [
+   0.25510204081632654,
+   1078
+  ]
+ },
+ "base_test": 0.22116666666666668,
+ "n_test": 6000,
+ "shares": {
+  "Fixed 30,000 for everyone": [
+   0.156,
+   0.536,
+   0.645
+  ],
+  "3 \u00d7 the customer's own usual payment": [
+   0.574,
+   0.627,
+   0.681
+  ]
+ },
+ "pair": [
+  {
+   "increase": 10000,
+   "customer": "A",
+   "payback_months": 0.5,
+   "score": 99.9,
+   "band": "Supportable in this scenario"
+  },
+  {
+   "increase": 10000,
+   "customer": "B",
+   "payback_months": 1.0005002501250626,
+   "score": 100.0,
+   "band": "Supportable in this scenario"
+  },
+  {
+   "increase": 30000,
+   "customer": "A",
+   "payback_months": 1.5,
+   "score": 99.1,
+   "band": "Supportable in this scenario"
+  },
+  {
+   "increase": 30000,
+   "customer": "B",
+   "payback_months": 3.001500750375188,
+   "score": 97.0,
+   "band": "Supportable in this scenario"
+  },
+  {
+   "increase": 50000,
+   "customer": "A",
+   "payback_months": 2.5,
+   "score": 97.0,
+   "band": "Supportable in this scenario"
+  },
+  {
+   "increase": 50000,
+   "customer": "B",
+   "payback_months": 5.002501250625313,
+   "score": 94.4,
+   "band": "Supportable in this scenario"
+  },
+  {
+   "increase": 100000,
+   "customer": "A",
+   "payback_months": 5.0,
+   "score": 91.4,
+   "band": "Supportable in this scenario"
+  },
+  {
+   "increase": 100000,
+   "customer": "B",
+   "payback_months": 10.005002501250626,
+   "score": 86.5,
+   "band": "Supportable in this scenario"
+  },
+  {
+   "increase": 150000,
+   "customer": "A",
+   "payback_months": 7.5,
+   "score": 86.0,
+   "band": "Supportable in this scenario"
+  },
+  {
+   "increase": 150000,
+   "customer": "B",
+   "payback_months": 15.007503751875936,
+   "score": 81.1,
+   "band": "Supportable in this scenario"
+  },
+  {
+   "increase": 200000,
+   "customer": "A",
+   "payback_months": 10.0,
+   "score": 82.1,
+   "band": "Supportable in this scenario"
+  },
+  {
+   "increase": 200000,
+   "customer": "B",
+   "payback_months": 20.01000500250125,
+   "score": 77.2,
+   "band": "Supportable in this scenario"
+  }
+ ]
+}

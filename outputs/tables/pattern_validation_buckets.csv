@@ -1,0 +1,65 @@
+hypothesis,bucket,n,defaults,default_rate,ci_low,ci_high
+H1  higher utilization -> more default,"(-inf, 0.0]",771,276,0.358,0.3249,0.3924
+H1  higher utilization -> more default,"(0.0, 0.1]",8068,1361,0.1687,0.1607,0.177
+H1  higher utilization -> more default,"(0.1, 0.3]",3377,541,0.1602,0.1482,0.173
+H1  higher utilization -> more default,"(0.3, 0.5]",2971,607,0.2043,0.1902,0.2192
+H1  higher utilization -> more default,"(0.5, 0.7]",3055,776,0.254,0.2389,0.2697
+H1  higher utilization -> more default,"(0.7, 0.9]",3528,1007,0.2854,0.2708,0.3006
+H1  higher utilization -> more default,"(0.9, 1.0]",1722,563,0.3269,0.3052,0.3495
+H1  higher utilization -> more default,"(1.0, inf]",508,178,0.3504,0.3102,0.3929
+"H1b same, active users only (util > 10%)","(0.1, 0.3]",3377,541,0.1602,0.1482,0.173
+"H1b same, active users only (util > 10%)","(0.3, 0.5]",2971,607,0.2043,0.1902,0.2192
+"H1b same, active users only (util > 10%)","(0.5, 0.7]",3055,776,0.254,0.2389,0.2697
+"H1b same, active users only (util > 10%)","(0.7, 0.9]",3528,1007,0.2854,0.2708,0.3006
+"H1b same, active users only (util > 10%)","(0.9, 1.0]",1722,563,0.3269,0.3052,0.3495
+"H1b same, active users only (util > 10%)","(1.0, inf]",508,178,0.3504,0.3102,0.3929
+H2  more late months -> more default,0,15896,1830,0.1151,0.1103,0.1202
+H2  more late months -> more default,1,3572,1070,0.2996,0.2848,0.3148
+H2  more late months -> more default,2,1532,612,0.3995,0.3752,0.4242
+H2  more late months -> more default,3,936,471,0.5032,0.4712,0.5352
+H2  more late months -> more default,4,767,445,0.5802,0.5449,0.6146
+H2  more late months -> more default,5,237,142,0.5992,0.5357,0.6595
+H2  more late months -> more default,6,1060,739,0.6972,0.6688,0.7241
+H3  higher payment coverage -> less default,"(-inf, 0.0]",622,359,0.5772,0.538,0.6154
+H3  higher payment coverage -> less default,"(0.0, 0.05]",8071,2035,0.2521,0.2428,0.2617
+H3  higher payment coverage -> less default,"(0.05, 0.1]",4051,999,0.2466,0.2336,0.2601
+H3  higher payment coverage -> less default,"(0.1, 0.2]",1681,319,0.1898,0.1717,0.2092
+H3  higher payment coverage -> less default,"(0.2, 0.5]",1265,215,0.17,0.1503,0.1917
+H3  higher payment coverage -> less default,"(0.5, 0.99]",837,124,0.1481,0.1257,0.1738
+H3  higher payment coverage -> less default,"(0.99, inf]",7473,1258,0.1683,0.16,0.177
+H4  rising utilization (slope) -> more default,"(-0.308, -0.01]",4800,1435,0.299,0.2862,0.3121
+H4  rising utilization (slope) -> more default,"(-0.01, 0.0]",5584,1378,0.2468,0.2356,0.2583
+H4  rising utilization (slope) -> more default,"(0.0, 0.00758]",4016,687,0.1711,0.1597,0.183
+H4  rising utilization (slope) -> more default,"(0.00758, 0.0567]",4800,782,0.1629,0.1527,0.1736
+H4  rising utilization (slope) -> more default,"(0.0567, 1.167]",4800,1027,0.214,0.2026,0.2258
+H5  rising payments (slope) -> less default,"(-0.386, -0.00159]",4800,1060,0.2208,0.2093,0.2328
+H5  rising payments (slope) -> less default,"(-0.00159, 0.00026]",4800,1249,0.2602,0.248,0.2728
+H5  rising payments (slope) -> less default,"(0.00026, 0.00233]",4800,921,0.1919,0.181,0.2033
+H5  rising payments (slope) -> less default,"(0.00233, 0.00661]",4800,1062,0.2212,0.2097,0.2332
+H5  rising payments (slope) -> less default,"(0.00661, 0.938]",4800,1017,0.2119,0.2005,0.2237
+H6  rising bills (slope) -> more default,"(-0.308, -0.0101]",4800,1433,0.2985,0.2858,0.3116
+H6  rising bills (slope) -> more default,"(-0.0101, 0.0]",5572,1376,0.2469,0.2358,0.2584
+H6  rising bills (slope) -> more default,"(0.0, 0.00772]",4028,685,0.1701,0.1588,0.182
+H6  rising bills (slope) -> more default,"(0.00772, 0.0568]",4800,788,0.1642,0.154,0.1749
+H6  rising bills (slope) -> more default,"(0.0568, 1.167]",4800,1027,0.214,0.2026,0.2258
+H7  less consistent payments (CV) -> more default,"(-0.001, 0.271]",4800,919,0.1915,0.1806,0.2028
+H7  less consistent payments (CV) -> more default,"(0.271, 0.57]",4800,947,0.1973,0.1863,0.2088
+H7  less consistent payments (CV) -> more default,"(0.57, 0.867]",4800,1265,0.2635,0.2513,0.2762
+H7  less consistent payments (CV) -> more default,"(0.867, 1.356]",4800,1197,0.2494,0.2373,0.2618
+H7  less consistent payments (CV) -> more default,"(1.356, 2.236]",4800,981,0.2044,0.1932,0.216
+H8  higher credit limit -> less default,"(9999.999, 50000.0]",6146,1977,0.3217,0.3101,0.3335
+H8  higher credit limit -> less default,"(50000.0, 100000.0]",3819,990,0.2592,0.2456,0.2734
+H8  higher credit limit -> less default,"(100000.0, 180000.0]",4922,982,0.1995,0.1886,0.2109
+H8  higher credit limit -> less default,"(180000.0, 270000.0]",4380,741,0.1692,0.1584,0.1806
+H8  higher credit limit -> less default,"(270000.0, 1000000.0]",4733,619,0.1308,0.1215,0.1407
+H9  larger typical payment -> less default,"(-0.001, 485.9]",4800,1364,0.2842,0.2716,0.2971
+H9  larger typical payment -> less default,"(485.9, 1288.8]",4800,1323,0.2756,0.2632,0.2884
+H9  larger typical payment -> less default,"(1288.8, 2323.2]",4800,1129,0.2352,0.2234,0.2474
+H9  larger typical payment -> less default,"(2323.2, 4760.4]",4800,880,0.1833,0.1726,0.1945
+H9  larger typical payment -> less default,"(4760.4, 747276.0]",4800,613,0.1277,0.1186,0.1374
+H10 30k request is large vs typical payment -> more default,"(0.0, 1.0]",175,8,0.0457,0.0233,0.0876
+H10 30k request is large vs typical payment -> more default,"(1.0, 3.0]",1286,115,0.0894,0.075,0.1063
+H10 30k request is large vs typical payment -> more default,"(3.0, 10.0]",6589,1044,0.1584,0.1498,0.1675
+H10 30k request is large vs typical payment -> more default,"(10.0, 30.0]",8662,2058,0.2376,0.2287,0.2467
+H10 30k request is large vs typical payment -> more default,"(30.0, 100.0]",3428,979,0.2856,0.2707,0.3009
+H10 30k request is large vs typical payment -> more default,"(100.0, inf]",3860,1105,0.2863,0.2722,0.3007

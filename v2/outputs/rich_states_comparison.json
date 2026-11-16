@@ -1,0 +1,70 @@
+{
+  "cv_tests": {
+    "RF": {
+      "mean_diff": -0.0004124637433183098,
+      "folds_b_better": 11,
+      "folds": 25,
+      "t": -0.7380386420892515,
+      "p_value": 0.4676467712397245,
+      "cv_A": 0.7880044233555114,
+      "cv_A+rich": 0.7875919596121931
+    },
+    "LR": {
+      "mean_diff": 0.004239932746587791,
+      "folds_b_better": 25,
+      "folds": 25,
+      "t": 5.766029181104169,
+      "p_value": 6.073448796018352e-06,
+      "cv_A": 0.766467667463951,
+      "cv_A+rich": 0.7707076002105387
+    }
+  },
+  "bootstrap": {
+    "RF": {
+      "delta_roc_auc": -0.0016859184486035517,
+      "roc_auc_ci": [
+        -0.0033892577512387697,
+        3.442198020019921e-05
+      ],
+      "p_b_not_better_roc": 0.9715,
+      "delta_pr_auc": -0.0034692225451664616,
+      "pr_auc_ci": [
+        -0.0063873648788919605,
+        -0.0004535948899769192
+      ]
+    },
+    "LR": {
+      "delta_roc_auc": 0.0029570698351946145,
+      "roc_auc_ci": [
+        0.0002461255426446263,
+        0.0055610077652764045
+      ],
+      "p_b_not_better_roc": 0.017,
+      "delta_pr_auc": -0.003174782220187855,
+      "pr_auc_ci": [
+        -0.009172282950978872,
+        0.0028254138342424526
+      ]
+    }
+  },
+  "motifs_selected": [
+    "REVOLVING/WEAK > REVOLVING/WEAK > LATE/WEAK",
+    "NO_USE/NODUE > NO_USE/NODUE > NO_USE/NODUE",
+    "NO_USE/FULL > NO_USE/FULL > NO_USE/FULL",
+    "REVOLVING/PART > REVOLVING/PART > REVOLVING/PART",
+    "REVOLVING/WEAK > LATE/WEAK > LATE/WEAK",
+    "PAID_FULL/FULL > PAID_FULL/FULL > NO_USE/FULL",
+    "NO_USE/NODUE > REVOLVING/NODUE > REVOLVING/NODUE",
+    "NO_USE/NODUE > NO_USE/NODUE > LATE/NODUE",
+    "LATE/WEAK > LATE/WEAK > REVOLVING/WEAK",
+    "REVOLVING/WEAK > LATE/WEAK > REVOLVING/WEAK",
+    "LATE/WEAK > REVOLVING/WEAK > REVOLVING/WEAK"
+  ],
+  "risky": [
+    "NO_USE/NODUE > NO_USE/NODUE > LATE/NODUE",
+    "NO_USE/NODUE > NO_USE/NODUE > NO_USE/NODUE",
+    "NO_USE/NODUE > REVOLVING/NODUE > REVOLVING/NODUE",
+    "REVOLVING/WEAK > LATE/WEAK > LATE/WEAK",
+    "REVOLVING/WEAK > REVOLVING/WEAK > LATE/WEAK"
+  ]
+}

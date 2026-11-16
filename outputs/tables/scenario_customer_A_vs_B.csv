@@ -1,0 +1,13 @@
+increase,customer,payback_months,score,band
+10000,A,0.5,99.9,Supportable in this scenario
+10000,B,1.0005002501250626,100.0,Supportable in this scenario
+30000,A,1.5,99.1,Supportable in this scenario
+30000,B,3.0015007503751874,97.0,Supportable in this scenario
+50000,A,2.5,97.0,Supportable in this scenario
+50000,B,5.002501250625313,94.4,Supportable in this scenario
+100000,A,5.0,91.4,Supportable in this scenario
+100000,B,10.005002501250626,86.5,Supportable in this scenario
+150000,A,7.5,86.0,Supportable in this scenario
+150000,B,15.007503751875937,81.1,Supportable in this scenario
+200000,A,10.0,82.1,Supportable in this scenario
+200000,B,20.010005002501252,77.2,Supportable in this scenario

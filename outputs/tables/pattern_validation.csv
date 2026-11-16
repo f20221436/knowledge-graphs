@@ -1,0 +1,12 @@
+hypothesis,expected,observed_shape,direction_rho,trend_p,single_feature_auc,rate_low_bucket,rate_high_bucket,verdict
+H1  higher utilization -> more default,increasing,non-monotone,0.31,2.3e-69,0.568,0.358,0.3504,NOT SUPPORTED (non-monotone shape)
+"H1b same, active users only (util > 10%)",increasing,increasing,1.0,2e-63,0.595,0.1602,0.3504,SUPPORTED
+H2  more late months -> more default,increasing,increasing,1.0,0.0,0.729,0.1151,0.6972,SUPPORTED
+H3  higher payment coverage -> less default,decreasing,non-monotone,-0.96,1.6e-79,0.589,0.5772,0.1683,SUPPORTED
+H4  rising utilization (slope) -> more default,increasing,non-monotone,-0.7,1.3e-41,0.554,0.299,0.214,NOT SUPPORTED (opposite direction)
+H5  rising payments (slope) -> less default,decreasing,non-monotone,-0.3,0.0027,0.512,0.2208,0.2119,NOT SUPPORTED (non-monotone shape)
+H6  rising bills (slope) -> more default,increasing,non-monotone,-0.7,5e-41,0.554,0.2985,0.214,NOT SUPPORTED (opposite direction)
+H7  less consistent payments (CV) -> more default,increasing,non-monotone,0.6,3.9e-05,0.517,0.1915,0.2044,PARTLY (mostly in expected direction)
+H8  higher credit limit -> less default,decreasing,decreasing,-1.0,7.9e-151,0.623,0.3217,0.1308,SUPPORTED
+H9  larger typical payment -> less default,decreasing,decreasing,-1.0,1.7e-101,0.601,0.2842,0.1277,SUPPORTED
+H10 30k request is large vs typical payment -> more default,increasing,increasing,1.0,1.1e-98,0.601,0.0457,0.2863,SUPPORTED
